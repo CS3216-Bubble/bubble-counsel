@@ -11,7 +11,6 @@ describe('Chat', () => {
   let date = new Date();
   it('should accept values in the constructor', () => {
     let chat = new Chat({
-      id: 1,
       title: 'CS3216 Helpline',
       description: 'Halp',
       categories: ['School', 'Life', 'Relationship'],
