@@ -1,0 +1,18 @@
+<section class="chat">
+  <header class="header">
+    <h1>Chats</h1>
+    <input class="new-chat" placeholder="Chat Name" autofocus="" [(ngModel)]="newChat.title" (keyup.enter)="addChat()">
+  </header>
+  <section class="main" *ngIf="chats.length > 0">
+    <ul class="chat-list">
+      <li *ngFor="let chat of chats">
+        <div class="view">
+          <label>{{chat.title}}</label>
+          <label>{{chat.description}}</label>
+          <label>{{chat.lastActive}}</label>
+          <button class="join" (click)="joinChat(chat.id)"></button>
+        </div>
+      </li>
+    </ul>
+  </section>
+</section>
