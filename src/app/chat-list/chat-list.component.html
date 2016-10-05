@@ -1,0 +1,21 @@
+<section class="chat">
+ <header class="header">
+    <h1>Chats</h1>
+    <input class="new-chat" placeholder="Chat Name" autofocus="" [(ngModel)]="newChat.title">
+    <input class="new-chat" placeholder="Chat Description" autofocus="" [(ngModel)]="newChat.description">
+    <button class="new-chat" (click)="addChat()"></button>
+  </header>
+  <section class="main" *ngIf="chats.length > 0">
+    <ul class="chat-list">
+      <li *ngFor="let chat of chats">
+        <div class="view">
+          <label>{{chat.title}}</label>
+          <label>{{chat.description}}</label>
+          <label>{{chat.lastActive}}</label>
+<!--           <button class="join" (click)="joinChat(chat.id)"></button> -->
+          <a [routerLink]="['/chat',  chat.id ]">{{chat.title}}</a>
+        </div>
+      </li>
+    </ul>
+  </section>
+</section>

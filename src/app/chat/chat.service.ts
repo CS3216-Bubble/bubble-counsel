@@ -39,7 +39,7 @@ export class ChatService {
   // Simulate GET /chats/:id
   getChatById(id: number): Chat {
     return this.chats
-      .filter(chat => chat.id === id)
+      .filter(chat => chat.id == id)
       .pop();
   }
 }
