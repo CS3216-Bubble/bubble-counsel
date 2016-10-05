@@ -1,20 +1,45 @@
-<section class="chat">
-  <header class="header">
-    <h1>Chats</h1>
-    <input class="new-chat" placeholder="Chat Name" autofocus="" [(ngModel)]="newChat.title">
-    <input class="new-chat" placeholder="Chat Description" autofocus="" [(ngModel)]="newChat.description">
-    <button class="new-chat" (click)="addChat()"></button>
-  </header>
-  <section class="main" *ngIf="chats.length > 0">
-    <ul class="chat-list">
-      <li *ngFor="let chat of chats">
-        <div class="view">
-          <label>{{chat.title}}</label>
-          <label>{{chat.description}}</label>
-          <label>{{chat.lastActive}}</label>
-          <button class="join" (click)="joinChat(chat.id)"></button>
-        </div>
-      </li>
-    </ul>
-  </section>
-</section>
+<md-sidenav-layout>
+
+  <md-sidenav #sidenav mode="side" class="app-sidenav">
+    Sidenav
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+
+    Bubble
+
+    <span class="app-toolbar-filler"></span>
+
+  </md-toolbar>
+
+  <div class="app-content">
+    <section class="chat">
+      <header class="header">
+        <h1>Chats</h1>
+        <input class="new-chat" placeholder="Chat Name" autofocus="" [(ngModel)]="newChat.title">
+        <input class="new-chat" placeholder="Chat Description" autofocus="" [(ngModel)]="newChat.description">
+        <button class="new-chat" (click)="addChat()"></button>
+      </header>
+      <section class="main" *ngIf="chats.length > 0">
+        <ul class="chat-list">
+          <li *ngFor="let chat of chats">
+            <div class="view">
+              <label>{{chat.title}}</label>
+              <label>{{chat.description}}</label>
+              <label>{{chat.lastActive}}</label>
+              <button class="join" (click)="joinChat(chat.id)"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </section>
+  </div>
+
+  </md-sidenav-layout>
+
+<span class="app-action" [class.m2app-dark]="isDarkTheme">
+  <button md-fab><md-icon>check circle</md-icon></button>
+</span>
