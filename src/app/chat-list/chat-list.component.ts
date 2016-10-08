@@ -18,9 +18,9 @@ export class ChatListComponent implements OnInit {
     this.newChat = new Chat();
   }
 
-  // get chats() {
-  //   return this.chatService.getAllChats();
-  // }
+  getChats() {
+    return this.chatService.getAllChats();
+  }
 
   ngOnInit() {
     this.chats = this.chatService.getAllChats();

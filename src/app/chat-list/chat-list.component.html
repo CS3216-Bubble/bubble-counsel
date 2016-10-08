@@ -6,6 +6,7 @@
     <button class="new-chat" (click)="addChat()"></button>
   </header>
   <section class="main" *ngIf="chats.length > 0">
+    <button (click)="getChats()"></button>
     <ul class="chat-list">
       <li *ngFor="let chat of chats">
         <div class="view">
