@@ -21,6 +21,11 @@ export class ChatService {
     let roomListListener = Observable.fromEvent(this.socket, 'list_rooms');
     roomListListener.subscribe((payload) => {
       console.log('room list', payload);
+      if (payload instanceof Array) {
+        for (let chat of payload) {
+          this.chats.push(new Chat(chat));
+        }
+      }
     });
 
     let createRoomListener = Observable.fromEvent(this.socket, 'create_room');
@@ -32,20 +37,23 @@ export class ChatService {
     joinRoomListener.subscribe((payload) => {
       console.log('join room', payload);
     });
+
+    let errorListener = Observable.fromEvent(this.socket, 'bubble_error');
+    errorListener.subscribe((payload) => {
+      console.log('error', payload);
+    });
   }
 
-
-  // Simulate POST /chats
-  addChat(chat: Chat): ChatService {
+  addChat(chat: Chat) {
     this.socket.emit('create_room', chat);
-    if (!chat.roomId) {
-      chat.roomId = '' + (++this.lastId);
-    }
-    this.chats.push(chat);
-    return this;
   }
 
-  // Simulate PUT /chats/:id
+  joinChat(roomId: string) {
+    this.socket.emit('join_room', {
+      roomId: roomId,
+    });
+  }
+
   updateChatById(roomId: string, values: Object = {}): Chat {
     let chat = this.getChatById(roomId);
     if (!chat) {
@@ -55,13 +63,11 @@ export class ChatService {
     return chat;
   }
 
-  // Simulate GET /chats
   getAllChats(): Chat[] {
     this.socket.emit('list_rooms');
     return this.chats;
   }
 
-  // Simulate GET /chats/:id
   getChatById(roomId: string): Chat {
     return this.chats
       .filter(chat => chat.roomId == roomId)

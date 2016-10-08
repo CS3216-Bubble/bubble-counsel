@@ -3,5 +3,5 @@ import { ChatDetailComponent } from './chat-detail/chat-detail.component';
 
 export const ChatAppRoutes = [
   { path: '', component: ChatListComponent },
-  { path: 'chat/:id', component: ChatDetailComponent }
+  { path: 'chat/:roomId', component: ChatDetailComponent }
 ];

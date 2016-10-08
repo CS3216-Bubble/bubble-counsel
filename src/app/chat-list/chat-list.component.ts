@@ -16,6 +16,8 @@ export class ChatListComponent implements OnInit {
     console.log('add chat');
     this.chatService.addChat(this.newChat);
     this.newChat = new Chat();
+
+    this.chats = this.chatService.getAllChats();
   }
 
   getChats() {
