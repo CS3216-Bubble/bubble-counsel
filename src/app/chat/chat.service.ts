@@ -14,16 +14,16 @@ export class ChatService {
 
   // Simulate POST /chats
   addChat(chat: Chat): ChatService {
-    if (!chat.id) {
-      chat.id = ++this.lastId;
+    if (!chat.roomId) {
+      chat.roomId = '' + (++this.lastId);
     }
     this.chats.push(chat);
     return this;
   }
 
   // Simulate PUT /chats/:id
-  updateChatById(id: number, values: Object = {}): Chat {
-    let chat = this.getChatById(id);
+  updateChatById(roomId: string, values: Object = {}): Chat {
+    let chat = this.getChatById(roomId);
     if (!chat) {
       return null;
     }
@@ -37,9 +37,9 @@ export class ChatService {
   }
 
   // Simulate GET /chats/:id
-  getChatById(id: number): Chat {
+  getChatById(roomId: string): Chat {
     return this.chats
-      .filter(chat => chat.id == id)
+      .filter(chat => chat.roomId == roomId)
       .pop();
   }
 }

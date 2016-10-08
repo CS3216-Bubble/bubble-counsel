@@ -14,7 +14,7 @@ export class ChatDetailComponent implements OnInit {
 
   ngOnInit() {
     this.chat = this.chatService
-      .getChatById(this.route.snapshot.params['id']);
+      .getChatById(this.route.snapshot.params['roomId']);
   }
 
 }

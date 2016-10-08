@@ -1,7 +1,8 @@
 export class Chat {
-  id: number;
-  title: string = '';
-  description: string = '';
+  roomId: string;
+  roomName: string = '';
+  userLimit: number;
+  roomDescription: string = '';
   categories: string[];
   lastActive: Date;
 

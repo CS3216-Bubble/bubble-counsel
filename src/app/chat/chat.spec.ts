@@ -11,13 +11,13 @@ describe('Chat', () => {
   let date = new Date();
   it('should accept values in the constructor', () => {
     let chat = new Chat({
-      title: 'CS3216 Helpline',
-      description: 'Halp',
+      roomName: 'CS3216 Helpline',
+      roomDescription: 'Halp',
       categories: ['School', 'Life', 'Relationship'],
       lastActive: date,
     });
-    expect(chat.title).toEqual('CS3216 Helpline');
-    expect(chat.description).toEqual('Halp');
+    expect(chat.roomName).toEqual('CS3216 Helpline');
+    expect(chat.roomDescription).toEqual('Halp');
     expect(chat.categories).toEqual(['School', 'Life', 'Relationship']);
     expect(chat.lastActive).toEqual(date);
   });

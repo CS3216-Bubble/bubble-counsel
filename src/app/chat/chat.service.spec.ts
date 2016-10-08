@@ -1,4 +1,4 @@
-/* tslint:disable:no-unused-variable */
+=/* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { ChatService } from './chat.service';
@@ -20,14 +20,14 @@ describe('Service: Chat', () => {
 
      it('should return all chats', inject([ChatService], (service: ChatService) => {
         let chat1 = new Chat({
-          title: 'CS3216 Helpline',
-          description: 'Halp',
+          roomName: 'CS3216 Helpline',
+          roomDescription: 'Halp',
           categories: ['School', 'Life', 'Relationship'],
           lastActive: date,
         });
         let chat2 = new Chat({
-          title: 'CS3103 Helpline',
-          description: 'Halp',
+          roomName: 'CS3103 Helpline',
+          roomDescription: 'Halp',
           categories: ['School', 'Life', 'Relationship'],
           lastActive: date,
         });
@@ -41,14 +41,14 @@ describe('Service: Chat', () => {
   describe('#addChat(todo)', () => {
    it('should automatically assign an incrementing id', inject([ChatService], (service: ChatService) => {
     let chat1 = new Chat({
-      title: 'CS3216 Helpline',
-      description: 'Halp',
+      roomName: 'CS3216 Helpline',
+      roomDescription: 'Halp',
       categories: ['School', 'Life', 'Relationship'],
       lastActive: date,
     });
     let chat2 = new Chat({
-      title: 'CS3103 Helpline',
-      description: 'Halp',
+      roomName: 'CS3103 Helpline',
+      roomDescription: 'Halp',
       categories: ['School', 'Life', 'Relationship'],
       lastActive: date,
     });
@@ -62,28 +62,28 @@ describe('Service: Chat', () => {
    describe('#updateChatById(id, values', () => {
      it('should return char with the corresponding id and updated data', inject([ChatService], (service: ChatService) => {
         let chat = new Chat({
-          title: 'CS3216 Helpline',
-          description: 'Halp',
+          roomName: 'CS3216 Helpline',
+          roomDescription: 'Halp',
           categories: ['School', 'Life', 'Relationship'],
           lastActive: date,
         });
         service.addChat(chat);
         let updatedChat = service.updateChatById(1, {
-          title: 'New Chat Title'
+          roomName: 'New Chat Title'
         });
-        expect(updatedChat.title).toEqual('New Chat Title');
+        expect(updatedChat.roomName).toEqual('New Chat Title');
      }));
 
      it('should return null if chat is not found', inject([ChatService], (service: ChatService) => {
        let chat = new Chat({
-          title: 'CS3216 Helpline',
-          description: 'Halp',
+          roomName: 'CS3216 Helpline',
+          roomDescription: 'Halp',
           categories: ['School', 'Life', 'Relationship'],
           lastActive: date,
         });
        service.addChat(chat);
        let updatedChat = service.updateChatById(2, {
-         title: 'New Chat Title'
+         roomName: 'New Chat Title'
        });
        expect(updatedChat).toEqual(null);
      }));
