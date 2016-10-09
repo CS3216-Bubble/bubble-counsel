@@ -6,16 +6,14 @@ import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ChatDetailComponent } from './chat-detail/chat-detail.component';
-import { ChatListComponent } from './chat-list/chat-list.component';
+import { IssueListComponent } from './issue-list/issue-list.component';
 import { ChatAppRoutes } from './chats.routes';
-import { ChatService } from './chat/chat.service';
+import { IssueService } from './issue/issue.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatDetailComponent,
-    ChatListComponent
+    IssueListComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +22,7 @@ import { ChatService } from './chat/chat.service';
     MaterialModule.forRoot(),
     RouterModule.forRoot(ChatAppRoutes)
   ],
-  providers: [ChatService],
+  providers: [IssueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
