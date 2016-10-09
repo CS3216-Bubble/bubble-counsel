@@ -1,28 +1,17 @@
 <md-sidenav-layout>
-
-  <md-sidenav #sidenav mode="side" class="app-sidenav">
-    Sidenav
-  </md-sidenav>
-
   <md-toolbar color="primary">
-    <button class="app-icon-button" (click)="sidenav.toggle()">
-      <i class="material-icons app-toolbar-menu">menu</i>
-    </button>
-
     Bubble
 
     <span class="app-toolbar-filler"></span>
-    <span><a [routerLink]="['/profile']">Profile</a></span>
+    <button md-icon-button><md-icon>more_vert</md-icon></button>
   </md-toolbar>
 
   <div class="app-content">
-
     <router-outlet></router-outlet>
-
   </div>
 
   </md-sidenav-layout>
 
 <span class="app-action" [class.m2app-dark]="isDarkTheme">
-  <button md-fab><md-icon>check circle</md-icon></button>
+  <button md-fab><md-icon class="md-light">filter_list</md-icon></button>
 </span>
