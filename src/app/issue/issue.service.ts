@@ -50,7 +50,7 @@ export class IssueService {
 
   handleIssue(issueId: number, counsellorId: string): Issue {
     let issue = this.getIssueById(issueId);
-    
+
     if (issue.counsellorId === null) {
       issue.counsellorId = counsellorId;
     }
@@ -58,8 +58,19 @@ export class IssueService {
   }
 
   getAllIssues(): Issue[] {
-    this.socket.emit('list_issues');
-    return this.issues;
+    // this.socket.emit('list_issues');
+    // return this.issues;
+    let issue = new Issue({
+      userId: 'some user',
+      counsellorId: 'some counsellor',
+      type: Issue.Type.UserFlagged,
+    });
+
+    return [
+      issue,
+      issue,
+      issue,
+    ];
   }
 
   getIssueById(issueId: number): Issue {

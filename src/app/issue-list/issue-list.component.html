@@ -1,21 +1,10 @@
 <section class="issues">
- <header class="header">
-    <h1>Chats</h1>
-    <input class="new-chat" placeholder="Chat Name" autofocus="" [(ngModel)]="newChat.roomName">
-    <input class="new-chat" placeholder="Chat Description" autofocus="" [(ngModel)]="newChat.roomDescription">
-    <button class="new-chat" (click)="addChat()"></button>
-  </header>
-  <section class="main" *ngIf="issues.length > 0">
-    <ul class="chat-list">
-      <li *ngFor="let chat of chats">
-        <div class="view">
-          <label>{{chat.roomName}}</label>
-          <label>{{chat.roomDescription}}</label>
-          <label>{{chat.lastActive}}</label>
-<!--           <button class="join" (click)="joinChat(chat.id)"></button> -->
-          <a [routerLink]="['/chat',  chat.roomId ]">{{chat.roomName}}</a>
-        </div>
-      </li>
-    </ul>
-  </section>
+  <div *ngFor="let issue of issues">
+    <md-card>
+      <md-card-title-group>
+        <md-card-title>{{getFormattedIssueTitle(issue)}}</md-card-title>
+        <md-card-subtitle>Handled by: {{getCounsellorName(issue)}}</md-card-subtitle>
+      </md-card-title-group>
+    </md-card>
+  </div>
 </section>

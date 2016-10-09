@@ -1,3 +1,9 @@
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: black;
+}
+
 md-sidenav-layout.m2app-dark {
   background: black;
 }
